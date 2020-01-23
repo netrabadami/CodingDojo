@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Great Number Game</title>
+	<style>
+		.container{
+			margin-left: 300px;
+			text-align: center;
+			border:solid black;
+			width: 50%;
+			height: 500px;
+		}
+		.display{
+			margin-left: 200px;
+		}
+        .displayBox{
+            width: 300px;
+            height: 100px;
+            margin-left: 180px;
+            border: solid 3px black;
+            text-align: center;
+            background-color:{{boxColor}};
+		}
+		.form1{
+			text-align: center;
+			position: relative;
+			margin-left: 100px;
+			margin-top: 100px;
+			height: 50px;
+			width: 150px;
+
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Welcome to great Number Game</h2>
+		<h4>I am thinking a number between 1 to 100 Take a guess</h4>
+			{{hideDiv}}
+			<h4 class="h4">{{boxText}}</h4>
+            {{reset_button}}
+           	{{clseDiv}}
+ 
+<!-- 		<div class="displayBox">
+			 <h4 class="h4">{{boxText}}</h4>
+             {{reset_button}}
+		</div> -->
+		<div class="form1">
+			<form action="/guess" method="post">
+				<input type="text" name="input_guess">
+				<input type="submit" name="submit" value="submit">
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

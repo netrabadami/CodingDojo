@@ -1,0 +1,44 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.container{
+    display: block;
+    border:solid black;
+    margin: 20px;
+    padding: 20px;
+}
+.addbookform{
+    border:solid black;
+    margin: 20px;
+    padding: 20px;
+}
+.bktitle,.author,.review,.rating{
+    display: block;
+ 
+}
+.bkt1,.ibkt1,.author1,.author2,.review1,.review2,.rating1,.rating2{
+    display: inline-block;
+    height: 20px;
+    width: 150px;
+
+    margin: 20px;
+}
+.selectauthor,.addauthor{
+
+    width: 400px;
+}
+.selectauthor1,.authordrop,.addauthor1,.addauthor2{
+    display: inline-block;
+}
+.submit{
+    margin-left: 500px;
+    
+}
+.submit input{
+    width: 150px;
+    box-shadow: 3px 3px black;
+    border:solid black;
+    border-width: 2px;
+
+}

@@ -1,0 +1,38 @@
+.container{
+	height: 500px;
+	width: 500px;
+	background-color: pink;
+}
+.info,.info1,.info2{
+	display: inline;
+	height: 200px;
+	width: 200px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	/*border:solid black;*/
+}
+.form{
+	display: block;
+	height: 40px;
+	width: 450px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	text-align: left;
+	vertical-align: top;
+}
+.btn{
+		display: block;
+	height: 20px;
+	width: 40px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+.btn1{
+	background-color: lightblue;
+	height: 30px;
+	width: 60px;
+}
+.input{
+	height: 30px;
+	width: 200px;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>SHow Book</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'showbook.css' %}">
+</head>
+<body>
+    <body>
+        <div id="header">
+          <p>
+            <a href="/books">Home</a>
+          </p>
+          <p>
+            <a href="/books/add">Add Book and Review</a>
+          </p>
+          <p>
+            <a href="/logout">Logout</a>
+          </p>
+        </div>
+          <div id="messages">
+          {%if messages%}
+          <ul>
+            {%for message in messages%}
+              <li>
+                {{message}}
+              </li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+          </div>
+      
+          <p>
+            <h1>{{book.title}}</h1>
+          </p>
+          <p>
+            <h3>Author:{{book.author.name}}</h3>
+          </p>
+          <p>
+            Uploaded by: <a href="/users/{{book.submitted_by.id}}"> {{book.book_owner.name}} {{book.book_owner.alias}} </a>
+          </p>
+          <p>
+            Date added:{{book.created_at}}
+          </p>
+          <div class="reviewdetails">
+              <h2>Reviews</h2>
+              
+              <div class="displayreview">
+            {%for review in reviews %}
+              <p>
+                <h4><a href="/users/{{review.reviewer.id}}">{{review.reviewer.name}} {{review.reviewer.alias}} </a>Says:{{review.review}}</h4>
+              </p>
+              <p>
+                Rating: {{review.rating}}
+              <p>
+                Posted on {{review.created_at}}
+                {% if review.reviewer.id == logged_in.id %}
+                  <a href="/books/confirm_delete_review/{{review.id}}">[delete]</a>
+                {% endif %}
+              </p>
+              ___________________
+            {%endfor%}
+          </div>
+          <div class="editreview">
+            <form action = "{{book.id}}/add_review" method="POST">
+              {%csrf_token%}
+              <p>
+                <textarea name="review" rows="10" cols="30" placeholder="Write your review here"></textarea>
+              </p>
+              <p>
+                <select name="rating">
+                  <option value="none">Select rating</option>
+                  <option value="5">5</option>
+                  <option value="4">4</option>
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                </select>
+                <!-- <input type="hidden" name="book_id" value={{book.id}}> -->
+              </p>
+              <input type = "submit" value= "Submit Review">
+            </form>
+          </div>
+        </div>
+        </body>
+</body>
+</html>

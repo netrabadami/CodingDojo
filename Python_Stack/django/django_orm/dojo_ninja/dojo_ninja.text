@@ -1,0 +1,59 @@
+1.) Create 3 dojos
+        Dojo.objects.create(name="Ross",city="San Jose",state="CA")
+        Dojo.objects.create(name="Sheldon",city="Austin",state="TX")
+        Dojo.objects.create(name="Howard",city="LA",state="CA")
+
+2.) Delete the three dojos you created (e.g. Dojo.objects.get(id=1).delete())
+        del_dojo = Dojo.objects.all()
+        del_dojo.delete()
+
+3.) Create 3 additional dojos by using Dojo.objects.create
+        Dojo.objects.create(name="Leonard",city="Pasadena",state="CA")
+        Dojo.objects.create(name="penny",city="oklahoma",state="OA")
+        Dojo.objects.create(name="Alex",city="DC",state="DC")
+
+4.) Create 3 ninjas that belong to the first dojo you created.
+        this_dojo = Dojo.objects.get(id=4)
+        new_Ninja = Ninja.objects.create(dojo_id=this_dojo,first_name="ken",last_name="Hunter")
+        new_Ninja = Ninja.objects.create(dojo_id=this_dojo,first_name="Bran",last_name="Hustler")
+        new_Ninja = Ninja.objects.create(dojo_id=this_dojo,first_name="Bran",last_name="Hustler")
+
+5.) Create 3 more ninjas and have them belong to the second dojo you created.
+        this_dojo2 = Dojo.objects.get(id=5)
+        ninja2 = Ninja.objects.create(dojo_id=this_dojo2,first_name="David",last_name="jones")
+        ninja2 = Ninja.objects.create(dojo_id=this_dojo2,first_name="cece",last_name="parik")
+        ninja2 = Ninja.objects.create(dojo_id=this_dojo2,first_name="Winston",last_name="Bishop")
+
+6.) Create 3 more ninjas and have them belong to the third dojo you created.
+        this_dojo3 = Dojo.objects.get(id=6)
+        ninja3 = Ninja.objects.create(dojo_id=this_dojo3,first_name="Nick",last_name="Miller")
+        ninja3 = Ninja.objects.create(dojo_id=this_dojo3,first_name="Jess",last_name="Day")
+        ninja3 = Ninja.objects.create(dojo_id=this_dojo3,first_name="Amy",last_name="Fowler")
+
+
+7.) Be able to retrieve all ninjas that belong to the first Dojo.
+        Ninja.objects.filter(dojo=4).values()
+
+8.) Be able to retrieve all ninjas that belong to the last Dojo.
+        Ninja.objects.filter(dojo=6).values()
+
+9.) Query: Retrieve the last ninja's dojo
+        ninjas = Ninja.objects.get(id=9)
+        ninjas.dojo_id.name
+11.) Create and run the migration files to update the table in your database. If needed, provide a default value of "Dojos"
+        python manage.py makemigrations
+            You are trying to add a non-nullable field 'desc' to dojo without a default; we can't do that (the database needs something to populate existing rows).
+            Please select a fix:
+            1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+            2) Quit, and let me add a default in models.py
+            Select an option: 1
+            Please enter the default value now, as valid Python
+            The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+            Type 'exit' to exit this prompt
+        >>> "Dojos"
+            Migrations for 'ninja_app':
+            ninja_app/migrations/0002_dojo_desc.py
+            - Add field desc to dojo
+12.) Query New Dojo
+    Dojo.objects.all().values()
+    <QuerySet [{'id': 4, 'name': 'Leonard', 'city': 'Pasadena', 'state': 'CA', 'desc': 'Dojos'}, {'id': 5, 'name': 'penny', 'city': 'oklahoma', 'state': 'OA', 'desc': 'Dojos'}, {'id': 6, 'name': 'Alex', 'city': 'DC', 'state': 'DC', 'desc': 'Dojos'}]>

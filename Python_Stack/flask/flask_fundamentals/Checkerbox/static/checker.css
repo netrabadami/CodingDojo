@@ -1,0 +1,21 @@
+.box1{
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	background-color: purple;
+	border:none;
+}
+.box2{
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	background-color: black;
+	border:none;
+}
+tr,td{
+	height: 50px;
+}
+* {
+	padding: 0px;
+	margin: 0px;
+}

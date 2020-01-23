@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login & Registration</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script>
+        function validateForm() {
+            var fname = document.forms["regForm"]["fname"].value;
+            if (fname == "") {
+                alert("First Name must be filled out");
+            return false;
+            }
+            var lname = document.forms["regForm"]["lname"].value;
+            if (lname == "") {
+                alert("Last Name must be filled out");
+            return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    {% if messages %}
+    <div id='messages'>
+    <ul class>
+        {% for message in messages %}
+        <li>{% if message.tags %} {% endif %} {{ message }}</li>
+        {% endfor %}
+    </ul>
+    </div>
+    {% endif %}
+    <div class="container">
+
+        <div class="reg">
+            <h1>Registration</h1>
+            <form action="/registration/process" method="post" id="reg-form" name="regForm" onsubmit="return validateForm()">
+                {% csrf_token %}
+                <div class="fnamec">
+                    <div class="fname"><p>First Name</p></div>
+                    <div class="ifname"><input type="text" name="fname" id="fname"></div>   
+                </div>
+                <div class="lnamec">
+                    <div class="lname"><p>Last Name</p></div>
+                    <div class="ilname"><input type="text" name="lname" id="lname"></div>
+                </div>
+                <div class="emailc">
+                    <div class="email"><p>Email</p></div>
+                    <div class="iemail"><input type="text" name="email" id="email-reg"></div>
+                </div>
+                <div class="pwdc">
+                    <div class="pwd"><p>Password</p></div>
+                    <div class="ipwd"><input type="password" name="password" id="pw_reg"></div>
+                </div>
+                <div class="cpwdc">
+                    <div class="cpwd"><p>Confirm PW</p></div>
+                    <div class="icpwd"><input type="password" name="conf_password" id="conf_pw"></div>
+                </div>                
+                <div class="submit">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+
+        <div class="login">
+            <h1>Login</h1>
+            <form action="/login/process" method="post">
+                {% csrf_token %}
+                <div class="fnamec">
+                    <div class="fname"><p>Email</p></div>
+                    <div class="ifname"><input type="text" name="login_email" id="email_login"></div>   
+                </div>
+                <div class="fnamec">
+                    <div class="fname"><p>Password</p></div>
+                    <div class="ifname"><input type="password" name="log_password" id="pw_login"></div>   
+                </div>                
+                <div class="submit">
+                    <input type="submit" value="Log In">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

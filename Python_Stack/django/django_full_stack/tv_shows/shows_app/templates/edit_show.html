@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Edit Show</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'style.css' %}">
+
+</head>
+<body>
+    <div class="header">
+        <div class="head">
+            <h2>Edit the Show</h2>
+        </div>
+        <div class="goback">
+            <a href="/show/{{edit_show.id}}">Go Back</a>
+        </div>
+    </div>
+    <div>
+        <div class="error">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{message.tags}}" {% endif %}>
+                        {{message}}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form">
+            <form action="/edit/{{edit_show.id}}" method="POST">
+                {% csrf_token %}
+                <div class="title"> <p>Title</p><input type="text" name="title" value="{{edit_show.title}}"></div>
+                <div class="network"><p>Network</p> <input type="text" name="network" value="{{edit_show.network}}"></div>
+                <div class="rdate"><p>Release Date</p><input type="date" name="release_date" value="{{edit_show.release_date| date:'Y-m-d'}}"></div>
+                <!-- <div class="rdate"><p>Release Date</p> <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="release_date" value="{{formatedDate}}"></div> -->
+                <div class="description"><p>Description</p> <textarea rows="2" cols="57" name="description" value="{{edit_show.description}}">{{edit_show.description}}</textarea></div>
+                <div class="button"><button type="submit">Update</button> </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Static File Practice</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="static.css" ) }}">
+</head>
+<body>
+	<div class="container">
+		<p>Static Files Practice</p>
+		<img src="{{ url_for('static', filename="portfolio.png")}}">
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey Results</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='survey.css')}}">
+</head>
+<body>
+
+	<div class="container">
+		<h2>Submitted info</h2>
+		<div><div class="info">Name : </div><div class="info">{{session['yourName']}}</div></div>
+		<div><div class="info1">Dojo Location :</div><div class="info1">{{session['dojoLocation']}}</div></div>
+		<div><div class="info2">Comments : </div><div class="info2">{{session['comments']}}</div></div>
+		
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CheckBox</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="checker.css")}}">
+</head>
+<body>
+	<div class="container">
+		<table>
+			{%for i in range(input1):%}
+        		<tr>
+        			{%for j in range(input2):%}
+                		<td><div class=box{{ (i+j)%2+1}}></div></td>
+           			 {%endfor%}
+            	</tr>
+        {%endfor%}
+		</table>	
+		
+
+
+	</div>	
+
+</body>
+</html>

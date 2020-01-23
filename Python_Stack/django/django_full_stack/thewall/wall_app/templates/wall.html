@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Successfully Logged in or Registered</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wallstyle.css' %}">
+</head>
+<body>
+    <div class="wallcontainer">
+        <div class="header">
+            <div class="title"><h2>Coding Dojo Wall</h2></div>
+            <div class="name"><h3>Welcome, {{user.first_name}}!</h3></div>
+            <div class="logout">
+                <form action="/logoutprocess" method="get">
+                    <input type="submit" value="Logout!">
+                </form>
+            </div>
+        </div>
+
+        <div class="post_message">
+            <form action="/postmessage" method="post">
+                {% csrf_token %}
+                <textarea name="description" placeholder="Post a message..."></textarea>
+                <input type="submit" value="Post It">
+            </form>
+        </div>
+        <div class="displaymessage">
+            {% for msg in messages reversed %}
+                <div class="user_messages">
+                    {{msg.user.first_name}} {{msg.user.last_name}} {{msg.created_at | date:'m-d-Y'}}
+                    <p>{{msg.message_text}}</p>
+                    <div class="user_comments">
+                        {% for comment in msg.comments.all reversed %}
+                            {{comment.user.first_name}} {{comment.user.last_name}} {{comment.updated_at}}
+                            <p>{{comment.comment_text}}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="comment">
+                        <form action="/comment/{{msg.id}}"  method="POST">
+                            {% csrf_token %}
+                            <textarea  name="cmnt" placeholder="Leave {{msg.user.first_name}} a comment..."></textarea>
+                            <input type="submit" value="Post a comment"> 
+                        
+                        </form>
+                    </div>
+                </div>  
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

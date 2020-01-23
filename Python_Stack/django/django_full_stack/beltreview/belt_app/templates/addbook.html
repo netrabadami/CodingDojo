@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Add Book and Review</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'addbook.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>welcome, {{request.session.user_id}}</p>
+            <div class="home"><a href="/books">Home</a></div>
+            <div class="logout">
+                <a href="/logout/{{reg_user.id}}">logout</a>
+            </div>
+        </div>
+        <div class="addbookform">
+            <form action="/books/newadd" method="post" id="reg-form" name="addbookForm">
+                {% csrf_token %}
+                <div class="bktitle">
+                    <div class="bkt1"><p>Book Title:</p></div>
+                    <div class="ibkt1"><input type="text" name="title" id="name"></div>   
+                </div>
+                <div class="author">
+                    <div class="author1"><p>Author:</p></div>
+                    <div class="author2">
+                        <div class="selectauthor">
+                            <div class="selectauthor1"><label for="listed_author">Choose from the list:</label></div>
+                            <div class="authordrop">      
+                                
+                                    <select name="listed_author">    
+                                        <option value="none">Select an Author</option>      
+                                        {%for author in authors%}
+                                            <option value="{{author.name}}">{{author.name}}</option>
+                                        {%endfor%}
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="addauthor">
+                            <div class="addauthor1"><p>OR add new author</p></div>
+                            <div class="addauthor2"><input type="text" name="addauthor" id="addauthor"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <div class="review1"><p>Review</p></div>
+                    <div class="review2"><textarea rows="4" cols="50" name="review"></textarea></div>
+                </div>
+                <div class="rating">
+                    <div class="rating1"><p>Rating</p></div>
+                    <div class="rating2"> 
+                        <select name='rating'>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                     
+
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Add Book and Review">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

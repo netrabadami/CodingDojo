@@ -1,0 +1,46 @@
+.gold{
+    margin:25px;
+}
+.gold p{
+    display: inline-block;
+    margin-bottom: 10px;
+
+}
+.displaygold{
+    display: inline-block;
+    height: 30px;
+    width: 20%; 
+    border:solid black;
+    padding: 10px;
+}
+.category{
+    display: inline-block;
+    vertical-align: top;
+    height: 180px;
+    width: 20%;
+    border:solid black;
+    margin-left: 25px;
+    text-align: center;
+    padding: 10px;
+}
+.activity{
+    display: block;
+    width: 95%;
+    height:200px;
+    margin-left:25px;
+    margin-bottom: 30px;
+    border:solid black;
+    overflow: auto;
+}
+button{
+    border:solid black;
+    box-shadow: 3px 3px black;;
+
+}
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}

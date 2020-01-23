@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pets in California !!</title>
+	<style>
+		.fields{
+			margin:10px;
+		}
+	</style>
+</head>
+<body>
+	<h2>All the Pets</h2>
+	<div class="createpets">
+		<form action="/createpets" method="post">
+			<div class="fields"> Name: <input type="text" name="petName"></div>
+			<div class="fields">Type: <input type="text" name="petType"></div>
+			<div class="fields"><input type="submit" name="submit" value="Create"></div>
+		</form>
+	</div>
+	<div class="display">
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Type</th>
+			</tr>
+			{% for pet in fetchPets %}
+			<tr>
+				<td>{{pet['id']}}</td>
+				<td>{{pet['name']}}</td>
+				<td>{{pet['type']}}</td>
+			</tr>
+			{% endfor %}
+		</table>		
+	</div>
+</body>
+</html>

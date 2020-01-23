@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Books</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+    <div class="header">
+        <div class="title"><h2>welcome, {{reg_user.name}}!</h2></div>
+        <div class="addbook"><a href="/books/add">Add Books and Review</a></div>
+        <div class="logout">
+            <a href="/logout/{{reg_user.id}}">logout</a>
+        </div>
+    </div>
+</body>
+</html>

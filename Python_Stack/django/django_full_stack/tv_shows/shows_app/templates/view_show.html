@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>View TV Show</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'style.css' %}">
+
+</head>
+<body>
+    <div class="error">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{message.tags}}" {% endif %}>
+                    {{message}}
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="showcontainer">
+        <div class="header1"><h2>TV Show {{all_shows.id}}</h2></div>
+        <div class="goback1"><a href="/shows">Go Back</a></div>
+        
+        <div class="content">
+            <p>Title: {{all_shows.title}}</p>
+            <p>Network: {{all_shows.network}}</p>
+            <p>Release Date: {{all_shows.release_date | date:'M d,Y a'}}</p>
+            <p>Description: {{all_shows.description}}</p>
+        </div>
+
+        <div class="footer">
+            Last updated: {{all_shows.updated_at}}
+        </div>
+        <a href="/show/{{all_shows.id}}/edit">Edit</a> | <a href="/show/{{all_shows.id}}/delete">Delete</a>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter Session</title>
+</head>
+<body>
+
+	<h2>Number of times site is visited</h2>
+	<h3>Counter : {{session["counter"]}}</h3>
+    <form action="/add" method="post">
+        <button type="submit" name="add" value="add">add 2 visits</button>
+        <button type="submit" name="add" value="reset">reset Counter</button>
+    </form>
+    <form action="/increment" method="post">
+    	Increment: <input type="text" name="incmt">
+    	<button type="submit" name="incrbtn" value="incrVsl">Increment Counter</button>
+    </form>
+
+
+</body>
+</html>

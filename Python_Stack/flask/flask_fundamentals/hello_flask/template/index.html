@@ -1,0 +1,15 @@
+<h3>My Flask template</h3>
+<p>Phase :: {{ phrase }}</p>
+<p>Times :: {{ times }}</p>
+
+
+{% for i in range(times): %}
+   <p>{{phrase}}</p>
+{%endfor%}
+
+{%if phrase == "hello": %}
+<p>Say Hello</p>
+{% endif %}
+
+
+

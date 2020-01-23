@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Random World Generator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel='stylesheet' href="{%static 'style.css' %}"> 
+
+</head>
+<body>
+    <div class="container">
+       <div class="display">
+            <p>Random Word (attempt # {{request.session.counter}})</p>
+        </div>
+        
+        <div class="ran">
+            <p>{{request.session.word}}</p>
+        </div>
+        <div class="form">
+            <form action="/generate" method='post'>
+                {% csrf_token %}
+                <button type="submit">Generate!</button>
+            </form>
+            <form action="/reset" method='post'>
+                {% csrf_token %}
+                <button type="submit">Reset</button>
+            </form>
+    </div>
+    </div>
+</body>
+</html>

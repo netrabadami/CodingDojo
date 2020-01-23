@@ -1,0 +1,21 @@
+.display{
+    display: block;
+    height: 80px;
+    width: 50%;
+    margin-left: 300px;
+    margin-bottom: 30px;
+    text-align: center;
+    border:solid black;
+    font-family:Comic Sans MS, Comic Sans;
+    font-size: 20px;
+}
+.time{
+    display: block;
+    height: 150px;
+    width: 50%;
+    margin-left: 300px;
+    text-align: center;
+    border: solid black;
+    font-family:Comic Sans MS, Comic Sans;
+    font-size: 25px;
+}

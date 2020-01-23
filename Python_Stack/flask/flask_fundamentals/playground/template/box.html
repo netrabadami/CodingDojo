@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Playground</title>
+
+	<style>
+		.container{
+			display: block;
+			text-align: center;
+		}
+		.box,.box2,.box3{
+			display: inline-block;
+			color: red;
+			width: 100px;
+			height: 100px;
+			background-color: #9ec5f8;
+			border:solid black;
+		}
+   </style>
+</head>
+<body>
+	<div class="container">
+    	<h1>Welcome to the Playground!</h1>
+        {% if color == "none": %}
+    		{% for x in range(0, times) %}
+    			<div class="box"></div>
+    		{% endfor %}
+    	{%else:%}
+    		{% for x in range(0, times) %}
+    			<div class="box" style="background-color: {{color}}"></div>
+    		{% endfor %}
+    	{% endif %}
+
+	</div>
+</body>
+</html>

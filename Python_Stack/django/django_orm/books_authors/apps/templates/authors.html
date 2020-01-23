@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Books</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static%}
+    <link rel='stylesheet' href="{%static 'style.css' %}">
+</head>
+<body>
+    <div class="bookscontainer">
+        <div class="addbook">
+            <h2>Add an Author</h2>
+            <form action="/createAuthor" method="post">
+                {% csrf_token %}
+                <div class="form">First Name: <input type="text" name="first_name"></div>   
+                <div class="form">Last Name : <input type="text" name="last_name"></div>
+                <div class="form">Notes : <textarea rows="1" cols="30" name="note"></textarea></div>
+                <div class="form"><button type="submit">Add</button></div>
+            </form>
+        </div>
+        <div class="display">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {% for author in all_authors %}
+                        <tr>
+                            <td>{{author.id}}</td>
+                            <td>{{author.first_name}}</td>
+                            <td><a href="/author/{{author.id}}">view</a></td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div>
+</div>
+</body>
+</html>

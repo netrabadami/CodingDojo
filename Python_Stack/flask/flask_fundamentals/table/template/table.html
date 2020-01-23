@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Students Table</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="table.css")}}">
+</head>
+<body>
+	<table class="table">
+		<tr>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>FullName</th>
+		</tr>
+			{% for user in users:%}
+				<tr>
+					<td>{{ user['first_name'] }}</td>
+					<td>{{ user['last_name'] }}</td>
+					<td>{{ user['first_name']+" "+user['last_name'] }}</td>
+				</tr>
+			{% endfor %}
+
+	</table>
+
+
+</body>
+</html>

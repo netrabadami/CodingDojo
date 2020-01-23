@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding:0
+}
+.container{
+    border:solid black;
+    margin: 20px;
+    padding: 20px;
+}
+.reg,.login{
+    border: solid black;
+    display: inline-block;
+    height: 300px;
+    width: 42%;
+    vertical-align: top;
+    margin-right: 20px;
+    padding: 20px;
+}
+.reg{
+    margin-right: 60px;
+}
+.success{
+    color:green;
+}
+.error{
+    color:red;
+}
+.fnamec,.lnamec,.emailc,.pwdc,.cpwdc,.submit{
+    display: block;
+    height: 25px;
+    margin: 5px;
+}
+.fname,.ifname{
+    display: inline-block;
+
+}
+.lname,.ilname{
+    display: inline-block;
+
+}
+.email,.iemail{
+    display: inline-block;
+
+}
+.pwd,.ipwd,.cpwd,.icpwd{
+    display: inline-block;
+
+}
+input{
+    height: 20px;
+    width: 200px;
+    margin-left: 5px;
+}
+.submit{
+    margin-left: 160px;
+    margin-top: 20px;
+}
+.fname,.lname,.email,.pwd,.cpwd{
+    height: 20px;
+    width: 100px;
+}
+.submit input{
+    height: 30px;
+    width: 100px;
+}

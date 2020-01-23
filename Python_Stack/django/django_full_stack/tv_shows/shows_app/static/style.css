@@ -1,0 +1,97 @@
+*{
+    padding: 0px;
+    margin:0px;
+}
+.header{
+    display: block;
+    height: 70px;
+    width: 80%;
+    border: solid black;
+    margin-left: 100px;
+}
+.head{
+    display: inline-block;
+    width: 90%;
+    text-align: center;
+}
+.goback{
+    display: inline-block;
+}
+h2{
+    font-family: 'Comic Sans MS';
+    font-size: 30px;
+}
+.form{
+    display: block;
+    height: 300px;
+    width: 40%;
+    border: solid black;
+    margin-left: 290px;
+    padding: 40px;
+}
+.network,.rdate,.header1,.goback1{
+    display: inline-block;
+
+}
+.title,.network,.description{
+    margin: 20px;
+}
+.title input{
+    height: 20px;
+    width: 300px;
+}
+button{
+    height: 20px;
+    width: 50px;
+    border:solid black;
+    box-shadow: 3px 3px black;
+    margin-left: 200px;
+}
+h2{
+    padding: 10px;
+}
+p{
+    padding: 10px;
+    margin-left: 30px;
+}
+.footer,a{
+    margin-top: 100px;
+    padding: 10px;
+
+}
+.showcontainer{
+    height: 400px;
+    width: 60%;
+    margin-left: 200px;
+    border: solid black;
+}
+.header1{
+    width:80%;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 40px;
+    margin-left: 110px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  .error{
+      border: solid black;
+      height: 40px;
+      width: 60%;
+      margin-left: 200px;
+      color: brown;
+  }
+  ul{
+      margin-left: 30px;
+  }

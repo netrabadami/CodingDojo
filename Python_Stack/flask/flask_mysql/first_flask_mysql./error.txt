@@ -1,0 +1,37 @@
+1. Action : removed Value from user attribute
+     connection = pymysql.connect(host = 'localhost',
+                                    user = '', # removed value to produce an error
+                                    password = 'root', 
+                                    db = db,
+Error : "RuntimeError: cryptography is required for sha256_password or caching_sha2_password"
+
+2. Action : removed Value from password attribute
+     connection = pymysql.connect(host = 'localhost',
+                                    user = 'root', 
+                                    password = '',# removed value to produce an error 
+                                    db = db,
+
+
+Error: pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+
+
+3. Action : misspelled 
+
+	 self.connection = connectionnn // misspelled connection
+
+Error:  name 'connectionnn' is not defined
+
+4. Action : removed try from try block
+      with self.connection.cursor() as cursor:
+      		<!-- try -->
+                query = cursor.mogrify(query, data)
+                print("Running Query:", query)
+	
+Error:
+    except Exception as e:
+                         ^
+IndentationError: unindent does not match any outer indentation level
+
+5. Action : removed try/except/finally  block from file and changed cursor.mogrify to 	cursor.modify
+
+Error: AttributeError: 'DictCursor' object has no attribute 'modify'

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ninja Gold!!!</title>
+    <style>
+        .gold{
+            margin:25px;
+        }
+        .gold p{
+            display: inline-block;
+            margin-bottom: 10px;
+
+        }
+        .displaygold{
+            display: inline-block;
+            height: 30px;
+            width: 20%; 
+            border:solid black;
+            padding: 10px;
+        }
+        .category{
+            display: inline-block;
+            vertical-align: top;
+            height: 180px;
+            width: 20%;
+            border:solid black;
+            margin-left: 25px;
+            text-align: center;
+            padding: 10px;
+        }
+        .activity{
+            display: block;
+            width: 95%;
+            height:200px;
+            margin-left:25px;
+            margin-bottom: 30px;
+            border:solid black;
+            overflow: auto;
+        }
+        button{
+            border:solid black;
+            box-shadow: 3px 3px black;;
+
+        }
+        .green{
+            color: green;
+        }
+
+        .red{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="gold">
+        <p>your Gold:</p>
+        <div class="displaygold">
+            {{goldCount}}
+        </div>
+            <form action="/clear" method="POST" class="reset">
+            <input type="submit" name="submit" value="Reset gold" />
+        </form>
+    </div>
+    <div class="goldcontainer">
+        <div class="category">
+            <h4>Farm</h4>
+            <p>(earns 10-20 golds)</p>
+            <form action="/process_money" method="post">
+                <input type="hidden" name="whichForm" value="farm">
+                <button type="submit"  value="Submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="category">
+            <h4>Cave</h4>
+            <p>(earns 5 - 10 golds)</p>
+            <form action="/process_money" method="post">
+                <input type="hidden" name="whichForm" value="cave">
+                <button type="submit"  value="Submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="category">
+            <h4>House</h4>
+            <p>(earns 2-5 golds)</p>
+            <form action="/process_money" method="post">
+                <input type="hidden" name="whichForm" value="house">
+                <button type="submit"  value="Submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="category">
+            <h4>Casino</h4>
+            <p>(earns 0-50 golds)</p>
+            <form action="/process_money" method="post">
+                <input type="hidden" name="whichForm" value="casino">
+                <button type="submit"  value="Submit">Submit</button>
+            </form>
+        </div>
+        <div class="gold">
+            <p>Activities</p>
+
+        </div>
+        <div class="activity">
+            {%for log in actLog[::-1]%}
+                {{log|safe}}
+            {%endfor%}
+        </div>
+    </div>
+
+</body>
+</html>
